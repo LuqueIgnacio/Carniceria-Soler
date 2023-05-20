@@ -1,6 +1,7 @@
 package com.proyectoTaller1.taller1.models;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -30,12 +31,13 @@ public class Brand {
     @NotBlank
     private String displayName;
 
+    @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     @NotNull
     private LocalDate createdAt;
 
     @Column(name = "deleted_at", nullable = false)
     @NotNull
-    private LocalDate deletedAt;
+    private boolean deletedAt = false;
 }
 

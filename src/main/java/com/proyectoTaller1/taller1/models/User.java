@@ -57,14 +57,17 @@ public class User {
     @NotBlank
     private String address;
 
-    @Column(name = "token", nullable = false, length = 15)
+    @Column(name = "token", nullable = true, length = 15)
     @Size(max=15)
-    @NotBlank
     private String token;
 
     @Column(name = "confirmed", nullable = false, length = 15)
     @NotBlank
     private boolean isConfirmed = false;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
