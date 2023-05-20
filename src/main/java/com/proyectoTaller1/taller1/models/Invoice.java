@@ -34,7 +34,12 @@ public class Invoice {
     @NotBlank
     private String lastName;
 
-    @Column(name = "DNI", nullable = false, length = 50, unique = true)
+    @Column(name = "name", nullable = false, length = 50)
+    @Size(max = 50)
+    @NotBlank
+    private String name;
+
+    @Column(name = "DNI", nullable = false, length = 50)
     @Size(max = 50)
     @NotBlank
     private String DNI;
