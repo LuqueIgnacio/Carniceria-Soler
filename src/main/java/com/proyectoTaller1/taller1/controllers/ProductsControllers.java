@@ -1,5 +1,6 @@
 package com.proyectoTaller1.taller1.controllers;
 
+import com.proyectoTaller1.taller1.dtos.AdminProductDTO;
 import com.proyectoTaller1.taller1.dtos.CustomerProductDTO;
 import com.proyectoTaller1.taller1.models.Product;
 import com.proyectoTaller1.taller1.services.ProductService;
@@ -17,7 +18,12 @@ public class ProductsControllers {
     private final ProductService productService;
 
     @GetMapping("productsToSale")
-    public ResponseEntity<List<CustomerProductDTO>> getAllProducts(){
+    public ResponseEntity<List<CustomerProductDTO>> getAllProductsToSale(){
         return new ResponseEntity<>(productService.findAllProductsToSale(), HttpStatus.OK);
+    }
+
+    @GetMapping("products")
+    public ResponseEntity<List<AdminProductDTO>> getAllProducts(){
+        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 }
