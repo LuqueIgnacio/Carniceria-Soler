@@ -23,6 +23,7 @@ public class ProductService {
         return productRepository.findAll().stream()
                 .map(product -> adminProductMapper.toDTO(product, product.getCategory(), product.getBrands())).collect(Collectors.toList());
     }
+
     public List<CustomerProductDTO> findAllProductsToSale(){
         return productRepository.findByIsListedTrueAndDeletedAtFalseAndStockGreaterThan(0)
                 .stream()
