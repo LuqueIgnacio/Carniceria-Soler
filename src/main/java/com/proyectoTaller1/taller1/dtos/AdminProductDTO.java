@@ -1,21 +1,13 @@
 package com.proyectoTaller1.taller1.dtos;
 
-import com.proyectoTaller1.taller1.models.Brand;
-import com.proyectoTaller1.taller1.models.Category;
+import com.proyectoTaller1.taller1.validators.Image;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import org.springframework.web.multipart.MultipartFile;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+
 
 @Setter
 @Getter
@@ -34,11 +26,13 @@ public class AdminProductDTO {
     private String name;
 
     @Size(max = 50)
-    @NotBlank
     private String image;
 
+    @Image(skipMethod = {"PUT"})
+    private MultipartFile imageFile;
+
     @NotNull
-    private BigDecimal price = new BigDecimal(0.0);
+    private BigDecimal price = new BigDecimal(0.0);g
 
     @NotNull
     private BigDecimal costPrice = new BigDecimal(0.0);
