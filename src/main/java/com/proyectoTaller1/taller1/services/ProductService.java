@@ -64,6 +64,13 @@ public class ProductService {
             return false;
         }
     }
+
+    public boolean deleteProduct(Long id) throws RuntimeException{
+        Product product = productRepository.findById(id).orElseThrow(RuntimeException::new);
+        product.setDeletedAt(true);
+        productRepository.save(product);
+        return true;
+    }
     public void deletePreviousImg(AdminProductDTO adminProductDTO){
         new File(imagesPath + productRepository.getImage(adminProductDTO.getId())).delete();
     }

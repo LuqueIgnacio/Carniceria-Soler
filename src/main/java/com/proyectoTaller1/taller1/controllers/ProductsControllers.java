@@ -63,4 +63,15 @@ public class ProductsControllers {
         }
     }
 
+    @DeleteMapping("products/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        try{
+            if(productService.deleteProduct(id)){
+                return ResponseEntity.status(HttpStatus.CREATED).build();
+            }
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 }
