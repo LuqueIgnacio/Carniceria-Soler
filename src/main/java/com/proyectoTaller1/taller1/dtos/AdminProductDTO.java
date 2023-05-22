@@ -32,7 +32,7 @@ public class AdminProductDTO {
     private MultipartFile imageFile;
 
     @NotNull
-    private BigDecimal price = new BigDecimal(0.0);g
+    private BigDecimal price = new BigDecimal(0.0);
 
     @NotNull
     private BigDecimal costPrice = new BigDecimal(0.0);

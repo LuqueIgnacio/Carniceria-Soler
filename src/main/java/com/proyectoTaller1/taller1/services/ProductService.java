@@ -34,6 +34,11 @@ public class ProductService {
                 .map(product -> productMapper.toDTO(product, product.getCategory(), product.getBrand())).collect(Collectors.toList());
     }
 
+    public AdminProductDTO findById(Long id) throws RuntimeException{
+        Product product = productRepository.findById(id).orElseThrow(RuntimeException::new);
+        return adminProductMapper.toDTO(product, product.getCategory(), product.getBrand());
+    }
+
     public boolean createProduct(AdminProductDTO adminProductDTO){
         try {
             setImgToProduct(adminProductDTO);
@@ -44,12 +49,23 @@ public class ProductService {
             return false;
         }
     }
-
-    public void deletePreviousImg(AdminProductDTO adminProductDTO){
-        if(adminProductDTO.getImage().isEmpty()){
-           return;
+    public boolean updateProduct(AdminProductDTO adminProductDTO){
+        try {
+            if(adminProductDTO.getImageFile() == null){
+                productRepository.updateWithoutModifyImg(adminProductMapper.toModel(adminProductDTO, adminProductDTO.getCategory(), adminProductDTO.getBrand()));
+            }else{
+                deletePreviousImg(adminProductDTO);
+                setImgToProduct(adminProductDTO);
+                productRepository.save(adminProductMapper.toModel(adminProductDTO, adminProductDTO.getCategory(), adminProductDTO.getBrand()));
+                saveImg(adminProductDTO);
+            }
+            return true;
+        } catch (IOException e) {
+            return false;
         }
-        new File(imagesPath + adminProductDTO.getImage()).delete();
+    }
+    public void deletePreviousImg(AdminProductDTO adminProductDTO){
+        new File(imagesPath + productRepository.getImage(adminProductDTO.getId())).delete();
     }
 
     public void saveImg(AdminProductDTO adminProductDTO) throws IOException, IllegalStateException{

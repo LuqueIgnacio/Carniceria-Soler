@@ -21,10 +21,10 @@ public class ImageValidator implements ConstraintValidator<Image, MultipartFile>
 
     @Override
     public boolean isValid(MultipartFile image, ConstraintValidatorContext context) {
-        if (Arrays.asList(this.skipMethod).contains(request.getMethod()) && image.isEmpty()) {
+        if (Arrays.asList(this.skipMethod).contains(request.getMethod()) && image == null) {
             return true;
         }
 
-        return !image.isEmpty();
+        return (image == null || !image.isEmpty());
     }
 }

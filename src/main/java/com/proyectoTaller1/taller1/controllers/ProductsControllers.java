@@ -8,9 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -30,6 +28,15 @@ public class ProductsControllers {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("products/{id}")
+    public ResponseEntity<AdminProductDTO> getProduct(@PathVariable Long id){
+        try{
+            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
+        }catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
     @PostMapping("products")
     public ResponseEntity<Void> createProduct(@Valid AdminProductDTO productDTO, Errors errors){
         try{
@@ -41,7 +48,19 @@ public class ProductsControllers {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
         }
+    }
 
+    @PutMapping("products/{id}")
+    public ResponseEntity<Void> updateProduct(@Valid AdminProductDTO productDTO, Errors errors){
+        try{
+            if(errors.hasErrors()){
+                return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+            }
+            productService.updateProduct(productDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+        }
     }
 
 }
