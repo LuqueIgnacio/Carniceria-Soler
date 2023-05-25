@@ -2,7 +2,6 @@ package com.proyectoTaller1.taller1.controllers;
 
 import com.proyectoTaller1.taller1.dtos.AdminProductDTO;
 import com.proyectoTaller1.taller1.dtos.CustomerProductDTO;
-import com.proyectoTaller1.taller1.models.Product;
 import com.proyectoTaller1.taller1.services.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import java.util.List;
 
 @RestController("/")
 @AllArgsConstructor
-public class ProductsControllers {
+public class ProductsController {
     private final ProductService productService;
 
     @GetMapping("productsToSale")
@@ -67,7 +66,7 @@ public class ProductsControllers {
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
         try{
             if(productService.deleteProduct(id)){
-                return ResponseEntity.status(HttpStatus.CREATED).build();
+                return ResponseEntity.status(HttpStatus.OK).build();
             }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){

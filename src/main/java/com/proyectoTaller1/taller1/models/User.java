@@ -62,7 +62,6 @@ public class User {
     private String token;
 
     @Column(name = "confirmed", nullable = false, length = 15)
-    @NotBlank
     private boolean isConfirmed = false;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -71,13 +70,11 @@ public class User {
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
-    @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate updatedAt;
 
