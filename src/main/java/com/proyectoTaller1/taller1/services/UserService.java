@@ -7,12 +7,22 @@ import com.proyectoTaller1.taller1.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final AdminUserMapper adminUserMapper;
 
+    public AdminUserDTO getAdminUserDTO(Long id) throws RuntimeException{
+        User user = userRepository.findById(id).orElseThrow(RuntimeException::new);
+        return adminUserMapper.toDTO(user);
+    }
+    public List<AdminUserDTO> getAllAdminUserDTO(){
+        return userRepository.findByDeletedAtFalse().stream().map(adminUserMapper::toDTO).collect(Collectors.toList());
+    }
     public User create(AdminUserDTO user){
         return userRepository.save(adminUserMapper.toModel(user));
     }
