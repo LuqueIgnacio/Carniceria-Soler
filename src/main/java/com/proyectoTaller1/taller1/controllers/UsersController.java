@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -42,6 +39,15 @@ public class UsersController {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
         userService.create(userDTO);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("users")
+    public ResponseEntity<Void> update(@Valid AdminUserDTO userDTO, Errors errors){
+        if(errors.hasErrors()){
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+        userService.update(userDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

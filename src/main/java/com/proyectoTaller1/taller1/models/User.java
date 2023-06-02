@@ -1,9 +1,11 @@
 package com.proyectoTaller1.taller1.models;
 
+import com.proyectoTaller1.taller1.validators.Password;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -81,4 +83,9 @@ public class User {
     @Column(name = "deleted_at", nullable = false)
     @NotNull
     private boolean deletedAt = false;
+
+    @PrePersist
+    private void hashPassword(){
+        this.password = new BCryptPasswordEncoder(12).encode(this.password);
+    }
 }
