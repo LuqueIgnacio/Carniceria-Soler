@@ -1,12 +1,14 @@
 package com.proyectoTaller1.taller1.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import com.proyectoTaller1.taller1.validators.Password;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Setter
