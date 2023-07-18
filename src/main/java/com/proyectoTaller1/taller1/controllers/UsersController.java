@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -56,4 +55,5 @@ public class UsersController {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

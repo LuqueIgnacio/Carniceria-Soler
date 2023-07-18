@@ -46,4 +46,5 @@ public class UserService {
         user.setDeletedAt(true);
         return userRepository.save(user);
     }
+
 }
