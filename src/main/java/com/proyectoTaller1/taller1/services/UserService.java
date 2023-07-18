@@ -37,4 +37,14 @@ public class UserService {
         userDTO.setPassword(new BCryptPasswordEncoder(12).encode(userDTO.getPassword()));
         return userRepository.save(adminUserMapper.toModel(userDTO));
     }
+
+    public User delete(Long id){
+        User user = userRepository.findById(id).orElseThrow();
+        if(user.isDeletedAt()){
+            return user;
+        }
+        user.setDeletedAt(true);
+        return userRepository.save(user);
+    }
+
 }
