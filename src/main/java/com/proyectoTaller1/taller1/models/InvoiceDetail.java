@@ -1,17 +1,9 @@
 package com.proyectoTaller1.taller1.models;
 
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Setter
 @Getter
