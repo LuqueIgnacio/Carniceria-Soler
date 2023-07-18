@@ -1,6 +1,7 @@
 package com.proyectoTaller1.taller1.dtos;
 
 import com.proyectoTaller1.taller1.models.Role;
+import com.proyectoTaller1.taller1.validators.Password;
 import lombok.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -33,7 +34,7 @@ public class AdminUserDTO {
     private String email;
 
     @Size(max=60)
-    @NotBlank
+    @Password(skipMethod = {"PUT"})
     private String password;
 
     @Size(max=15)
