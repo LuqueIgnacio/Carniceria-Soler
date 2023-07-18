@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByDeletedAtFalse();
 
