@@ -1,12 +1,8 @@
 package com.proyectoTaller1.taller1.models;
 
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
-import javax.validation.constraints.Size;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Setter
 @Getter
