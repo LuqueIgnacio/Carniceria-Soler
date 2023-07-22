@@ -13,6 +13,8 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByDeletedAtFalse();
 
+    User findByEmail(String email);
+
     @Modifying
     @Transactional
     @Query("UPDATE User u SET u.address = :#{#user.address}, u.dni = :#{#user.dni}," +
