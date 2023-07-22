@@ -3,13 +3,13 @@ package com.proyectoTaller1.taller1.controllers;
 import com.proyectoTaller1.taller1.dtos.AdminProductDTO;
 import com.proyectoTaller1.taller1.dtos.CustomerProductDTO;
 import com.proyectoTaller1.taller1.services.ProductService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController("/")

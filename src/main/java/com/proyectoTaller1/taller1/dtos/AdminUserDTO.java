@@ -3,10 +3,10 @@ package com.proyectoTaller1.taller1.dtos;
 import com.proyectoTaller1.taller1.models.Role;
 import com.proyectoTaller1.taller1.validators.Password;
 import lombok.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Setter
 @Getter
