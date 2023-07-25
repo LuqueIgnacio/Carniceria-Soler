@@ -1,0 +1,103 @@
+.grid-tienda{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    column-gap: 4rem;
+}
+
+
+
+.div-opciones-productos{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid #dadfe1;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    height: fit-content;
+}
+.div-opciones-productos .btn{
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.grid-productos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 24.8rem);
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem 0;
+    border: 1px solid #dadfe1;
+    max-height: 150rem;
+    overflow-y: auto;
+}
+
+@media (max-width: 1000px){
+    .grid-tienda{
+        display: flex;
+        flex-direction: column;
+    }
+    .filtro-producto{
+        display: block !important;
+    }
+    .grid-productos{ 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1300px){
+    .grid-productos{
+       justify-content: space-around;
+    }
+}
+
+.grid-productos .oferta{
+    width: 20.5rem;
+}
+
+.grid-productos .oferta h5{
+    font-size: 2rem;
+    overflow: hidden;
+}
+
+.filtro-producto{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.filtro-producto input[type=text]{
+    font-size: 1.8rem;
+    flex: 1;
+}
+.filtro-producto label{
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.filtro-producto .precio{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    margin-left: 1rem;
+}
+
+.filtros-producto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    max-height: 27rem;
+    overflow-y: auto;
+}
+
+.filtros-producto label{
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.filtros-producto input{
+    width: 2rem;
+    margin: 0 auto;
+}

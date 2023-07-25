@@ -1,0 +1,23 @@
+
+.oferta{
+    width: 34rem;
+}
+.oferta img{
+    height: 20rem;
+}
+.oferta h5{
+    font-size: 2.5rem;
+}
+.oferta .btn{
+    font-size: 2rem;
+    padding: 1rem;
+}
+.oferta-precio{
+    font-size: 1.5rem;
+}
+@media (max-width: 900px) {
+   
+    .oferta{
+        margin-bottom: 2rem;
+    }
+}

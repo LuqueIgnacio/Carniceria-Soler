@@ -1,0 +1,109 @@
+.contenedor{
+    width: 85%;
+    margin: 2rem auto;
+}
+
+.home-container{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+}
+
+@media (max-width: 900px) {
+    .home-container{
+        flex-direction: column;
+    }
+    .carousel{
+        display: none;
+    }
+    .oferta-dia{
+        margin: 0 auto;
+        width: 100% !important;
+    }
+    .lista-ofertas{
+        align-items: center;
+    }
+}
+
+
+
+.carousel {
+    width: 94rem;
+}
+
+.card{
+    width: 100%;
+}
+
+.ofertas-container h2{
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+.oferta-dia{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 46rem;
+    margin-right: 2rem;
+}
+.oferta-dia-top{
+    display: block;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-weight: 600;
+    font-size: 2rem;
+}
+.oferta-dia-top p{
+    margin: 0;
+}
+.oferta-dia .card-body{
+    padding: 5rem 1rem;
+}
+.oferta-dia .card{
+    background-color: #f0f3f3;
+}
+.oferta-dia h5{
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.oferta-dia .btn{
+    display: block;
+    padding: 1rem;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.lista-ofertas{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 33.8rem);
+    justify-content: center;
+    column-gap: 2rem;
+    height: 50rem;
+}
+
+@media (max-width: 900px){
+    .lista-ofertas{
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+}
+
+@media (max-width: 1300px){
+    .lista-ofertas{
+        grid-template-columns: repeat(3,1fr);
+        
+    }
+    .lista-ofertas .oferta:last-of-type{
+        display: none;
+    }
+}
