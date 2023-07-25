@@ -1,0 +1,21 @@
+.contenedor-legales{
+    font-size: 2rem;
+    text-align: justify;
+}
+.legales-section{
+    margin-bottom: 2rem;
+}
+@media (max-width: 900px){
+    .legales-imgs{
+        display: flex;
+        flex-direction: column;
+    }
+    .legales-imgs img{
+        margin: 0 auto;
+        width: 200px;
+    }
+}
+.legales-titulo{
+    font-size: 2.5rem;
+    font-weight: 800;
+}

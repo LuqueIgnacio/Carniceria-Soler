@@ -1,0 +1,28 @@
+.contenedor-auth{
+    width: 45%;
+    margin: 4rem auto;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 2rem;
+}
+
+@media (max-width: 412px){
+    .contenedor-auth{
+        width: 90%;
+    }
+}
+
+.contenedor-auth h2{
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.contenedor-auth .form-control{
+    padding: .5rem 1rem;
+    font-size: 2rem;
+}
+
+.contenedor-auth .btn{
+    width: 100%;
+    font-size: 2rem;
+}

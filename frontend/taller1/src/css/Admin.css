@@ -1,0 +1,141 @@
+.contenedor-admin{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+}
+
+
+.admin-panel-opciones{
+    display: flex;
+    height: 50rem;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    border-right: 1px solid #dadfe1;
+}
+.admin-panel-opciones h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.admin-panel-opciones .btn{
+    font-size: 2rem;
+}
+.admin-opciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+.admin-opcion{
+    text-decoration: none;
+    color: #000;
+}
+
+.panel-btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.panel-btns input, .form-select{
+    font-size: 1.5rem;
+}
+.panel-btns button{
+    margin-right: 2rem;
+}
+.panel-btns .form-select{
+    margin-right: 2rem;
+}
+
+.admin-panel{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    height: auto;
+    max-height: 82.6rem;
+    overflow-y: auto;
+}
+.admin-panel .btn{
+    font-size: 1.5rem;
+}
+.admin-panel .circuloProgreso{
+    margin: auto;
+}
+
+table{
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+.consulta{
+    word-break: break-word;
+}
+.admin-panel h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.descripcion-panel{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.ventas-total{
+    font-size: 2.2rem;
+    margin-top: 2rem;
+}
+
+.form-crear{
+    width: 50%;
+    margin: 0 auto;
+}
+.form-crear input{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.form-crear input[type=file]{
+    text-align: left;
+}
+.form-crear select{
+    width: 100%;
+}
+.form-crear .btn{
+    font-size: 2rem;
+}
+
+@media (max-width: 900px){
+    .contenedor-admin{
+        display: flex;
+        flex-direction: column;
+    }
+    .panel-btns form, .panel-btns{
+        flex-direction: column;
+    }
+    .panel-btns form > *{
+        margin-bottom: 1rem;
+    }
+    .panel-btns button{
+        margin-right: 0;
+    }
+    .panel-btns a{
+        margin-top: 2rem;
+    }
+    table{
+        border-spacing: 2rem;
+        border-collapse: unset;
+    }
+}
+
+@media (max-width: 1300px){
+    .contenedor-admin{
+        display: block;
+    }
+    .admin-panel-opciones{
+        height: auto;
+    }
+    .admin-opciones{
+        flex-direction: row;
+    }
+}
