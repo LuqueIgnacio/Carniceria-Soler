@@ -3,18 +3,20 @@ import React from "react"
 import Seeker from "../../components/shop/Seeker"
 import Product from "../../components/shop/Product"
 import {useGetProductsToSale} from "../../hooks/ProductsHooks"
+import { useCart } from "../../hooks/useCart"
 
 function Shop(){
 
-    const products = useGetProductsToSale()
-    
+    const productsToSale = useGetProductsToSale()
+    const {cart, addProduct} = useCart()
+
     return(
         <main class="contenedor">
             <div id="productos" class="grid-tienda">
                 <Seeker/>
                 <div class="container-productos">
                     <div class="grid-productos">
-                        {products.isFetching ? <h1>cargando</h1> : products.data.map(product => <Product product={product}/>)}
+                        {productsToSale.isFetching ? <h1>cargando</h1> : productsToSale.data.map(product => <Product key={product.id} product={product} addProduct={addProduct}/>)}
                     </div>
                 </div>               
             
