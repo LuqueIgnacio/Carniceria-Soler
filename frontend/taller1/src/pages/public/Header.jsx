@@ -1,6 +1,7 @@
 import "../../css/Header.css"
 import React from "react"
 import { Link} from "react-router-dom";
+import Cart from "../../components/cart/Cart"
 
 function Header(){
     
@@ -23,6 +24,7 @@ function Header(){
                     <Link to="/login">Iniciar Sesión</Link>
                     <Link to="/registro">Registrarse</Link>
                     <Link to="/admin" >Admin</Link>
+                    <Cart/>
                 </nav>
             </header>
         </>
